@@ -99,9 +99,9 @@ void dac(){ //Prepares data to be sent to the DAC
   Serial.print("DAC out: ");
   Serial.println(dacOut);
   Wire.beginTransmission(MCP4725_ADDR);
-  Wire.write(64); // Command to update the DAC
-  Wire.write(dacOut >> 4); // The 8 most significant bits
-  Wire.write((dacOut & 15) << 4); // The 4 least significant bits. Think binary, bitwise and (&) dacOut with 15 removes all the bits from 5 to 12. << shifts those bits left. More info: https://www.programiz.com/c-programming/bitwise-operators#and  
+  Wire.write(64); //Command to update the DAC
+  Wire.write(dacOut >> 4); //The 8 most significant bits
+  Wire.write((dacOut & 15) << 4); //The 4 least significant bits. Think binary, bitwise and (&) dacOut with 15 removes all the bits from 5 to 12. << shifts those bits left. More info: https://www.programiz.com/c-programming/bitwise-operators#and  
   Wire.endTransmission(); //Ends the transmission 
 }
 
