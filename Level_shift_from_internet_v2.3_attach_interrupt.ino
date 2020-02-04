@@ -47,7 +47,7 @@ void loop() {
 void pausePlay(){
   static unsigned long last_interrupt_time = 0; //Some useful debounce tricks from - https://forum.arduino.cc/index.php?topic=45000.0
   unsigned long interrupt_time = millis();
-  if (interrupt_time - last_interrupt_time > 200){
+  if (interrupt_time - last_interrupt_time > 400){
      state = !state;
      Serial.println("interrupt recieved");
   }
