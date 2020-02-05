@@ -12,7 +12,7 @@
 
 // Pin Setup
 int inputPin = A0;
-int outputPin = 5;
+int powerLED = 5;
 const byte interruptPin = 2;
 
 // Global variables
@@ -26,10 +26,12 @@ void setup() {
   Wire.begin(); //Begins the I2C communication
   pinMode(A2, OUTPUT); //Set to output and used to power and ground the breakout board
   pinMode(A3, OUTPUT);
+  pinMode(powerLED, OUTPUT); //Set pin 5 as output to be used for the LED on the power button.
   pinMode(interruptPin, INPUT_PULLUP);
   attachInterrupt(digitalPinToInterrupt(interruptPin), pausePlay, FALLING);
   digitalWrite(A2, LOW); //GND
   digitalWrite(A3, HIGH); //Vcc  
+  digitalWrite(powerLED, HIGH); //PowerLED pin
 
   startSequence();
   Serial.println("Start sequence run");
